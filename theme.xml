@@ -9,7 +9,7 @@
 
         <title>
             <data:blog.pageTitle />
-            — Sterrenkruid — Joke Visker
+             — Joke Visker
         </title>
 
         <b:skin>
@@ -123,6 +123,7 @@ sub {
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+
 body {
     background-color: var(--main-bg);
     border-top: 15px solid var(--main);
@@ -214,9 +215,12 @@ article.summary p {
 }
 
 .archive-date,
-.loading-text {
+.loading-text,
+.secondary-text,
+.secondary-text a {
     color: var(--gray);
     font-size: 14px;
+    text-decoration: none;
 }
 
 /* Layout */
@@ -327,8 +331,43 @@ html {
     color: var(--gray);
 }
 
-.section {
-    margin: 0 !important;
+/* Comments */
+
+.comments ol {
+    padding: 0;
+}
+
+.comments li {
+    list-style: none;
+    margin-bottom: 20px;
+    border-top: 2px solid var(--main);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.secondary-text a {
+    padding-left: 5px;
+}
+
+.comments li > div:last-child {
+    grid-column: span 2;
+}
+
+.comment-replies {
+    grid-column: span 2;
+    padding-left: 20px;
+}
+
+.thread-toggle {
+    display: none;
+}
+
+/* Misc */
+
+.hidden {
+    display: none;
 }
             ]]>
         </b:skin>
@@ -366,9 +405,7 @@ html {
                     <div>
                         <h2>
                             <span class="p-name">Joke Visker</span>
-                            (
-                            <span class="dt-bday">1950</span>
-                            )
+                            (<span class="dt-bday">1950</span>)
                         </h2>
                         <p>
                             <a class="u-url" rel="me" href="https://jokessterrenkruid.blogspot.com">https://jokessterrenkruid.blogspot.com</a>
@@ -398,11 +435,7 @@ html {
 
                             <b:if cond='data:view.isHomepage or data:view.search'>
                                 <article class="summary h-entry">
-                                    <h3 class="p-title">
-                                        <a class="u-url" expr:href="data:post.url">
-                                            <data:post.title />
-                                        </a>
-                                    </h3>
+                                    <h3 class="p-title"><a class="u-url" expr:href="data:post.url"><data:post.title /></a></h3>
                                     <p class="p-summary e-content">
                                         <b:eval expr='data:post.longSnippet snippet { length: 400, links: false, linebreaks: false }' />
                                     </p>
@@ -414,7 +447,7 @@ html {
                                     <h1 class="p-title">
                                         <data:post.title />
                                     </h1>
-                                    <p>
+                                    <p hidden="hidden">
                                         <data:authorLabel />
                                         <span class="p-author">
                                             Joke Visker
@@ -429,13 +462,109 @@ html {
                                     </div>
                                 </article>
 
-                                <hr />
                                 <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
                             </b:if>
                         </b:loop>
+                    </b:includable>
+                    <b:includable id='comments' var='post'>
+                        <div class='comments' id='comments'>
+                            <a name='comments' />
+                            <b:if cond='data:post.allowComments'>
+                                <hr />
+                                <h2>Reacties</h2>
 
-                        <!-- feed links -->
-                        <b:include name='feedLinks' />
+                                <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+                                    <ol expr:class='data:post.avatarIndentClass' id='comments-block'>
+                                        <b:loop values='data:post.comments' var='comment'>
+                                            <li expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+                                                <b:if cond='data:comment.favicon'>
+                                                    <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px' />
+                                                </b:if>
+                                                <a expr:name='data:comment.anchorName' />
+                                                <b:if cond='data:blog.enabledCommentProfileImages'>
+                                                    <data:comment.authorAvatarImage />
+                                                </b:if>
+                                                <b:if cond='data:comment.authorUrl'>
+                                                    <a expr:href='data:comment.authorUrl' rel='nofollow'>
+                                                        <data:comment.author />
+                                                    </a>
+                                                    <b:else />
+                                                    <data:comment.author />
+                                                </b:if>
+                                                <data:commentPostedByMsg />
+                                            </li>
+                                            <dd class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+                                                <b:if cond='data:comment.isDeleted'>
+                                                    <span class='deleted-comment'>
+                                                        <data:comment.body />
+                                                    </span>
+                                                    <b:else />
+                                                    <p>
+                                                        <data:comment.body />
+                                                    </p>
+                                                </b:if>
+                                            </dd>
+                                            <dd class='comment-footer'>
+                                                <span class='comment-timestamp'>
+                                                    <a expr:href='data:comment.url' title='comment permalink'>
+                                                        <data:comment.timestamp />
+                                                    </a>
+                                                    <b:include data='comment' name='commentDeleteIcon' />
+                                                </span>
+                                            </dd>
+                                        </b:loop>
+                                    </ol>
+                                </div>
+
+                                <p class='comment-footer'>
+                                    <b:if cond='data:post.embedCommentForm'>
+                                        <b:if cond='data:post.allowNewComments'>
+                                            <b:include data='post' name='comment-form' />
+                                            <b:else />
+                                            <data:post.noNewCommentsText />
+                                        </b:if>
+                                        <b:elseif cond='data:post.allowComments' />
+                                        <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+                                            <data:postCommentMsg />
+                                        </a>
+                                    </b:if>
+                                </p>
+                            </b:if>
+                            <b:if cond='data:showCmtPopup'>
+                                <div id='comment-popup'>
+                                    <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'></iframe>
+                                </div>
+                            </b:if>
+                        </div>
+                    </b:includable>
+                    
+                    <b:includable id='threaded_comments' var='post'>
+                        <div class='comments' id='comments'>
+                            <a name='comments' />
+                            <hr />
+                            <h2>Reacties</h2>
+
+                            <div class='comments-content'>
+                                <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js' />
+                                <div id='comment-holder'>
+                                    <data:post.commentHtml />
+                                </div>
+                            </div>
+
+                            <p class='comment-footer'>
+                                <b:if cond='data:post.allowNewComments'>
+                                    <b:include data='post' name='threaded-comment-form' />
+                                    <b:else />
+                                    <data:post.noNewCommentsText />
+                                </b:if>
+                            </p>
+
+                            <b:if cond='data:showCmtPopup'>
+                                <div id='comment-popup'>
+                                    <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'></iframe>
+                                </div>
+                            </b:if>
+                        </div>
                     </b:includable>
                 </b:widget>
             </b:section>
