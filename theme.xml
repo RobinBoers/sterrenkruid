@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' b:css='false' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+    <head>
+        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <b:include data='blog' name='all-head-content' />
+
+        <title>
+            <data:blog.pageTitle />
+            — Sterrenkruid — Joke Visker
+        </title>
+
+        <b:skin>
+            <![CDATA[
+            @import url("https://fonts.googleapis.com/css2?family=Lobster&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+            /* Typography */
+            html,
+.root {
+    font-size: 19px;
+    line-height: 27px;
+}
+body {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 27px;
+}
+h1,
+.h1 {
+    border-bottom: 2px solid #a2a9b1;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 54px;
+    margin-top: 27px;
+}
+h2,
+.h2 {
+    font-weight: normal;
+    font-size: 29px;
+    line-height: 54px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+h3,
+.h3 {
+    font-size: 23px;
+    line-height: 27px;
+    margin-top: 27px;
+    margin-bottom: 13px;
+}
+h4,
+.h4 {
+    font-size: 19px;
+    line-height: 27px;
+    margin-top: 27px;
+    margin-bottom: 0;
+}
+h5,
+.h5 {
+    font-size: 19px;
+    line-height: 27px;
+    margin-top: 27px;
+    margin-bottom: 0;
+}
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+    margin-top: 0;
+    margin-bottom: 27px;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Let's make sure all's aligned */
+hr,
+.hr {
+    border: 1px solid;
+    margin: -1px 0;
+}
+a,
+b,
+i,
+strong,
+em,
+small,
+code {
+    line-height: 0;
+}
+sub,
+sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+
+/* Theme */
+
+:root {
+    --main: #cf2658;
+    --main-light: #fa3f77;
+    --gray: #292929;
+    --main-bg: #fcfcfc;
+    --bg: url("./images/IMG_4539\ \(copy\).JPG");
+
+    --serif: "PT Serif", serif;
+    --display: "Lobster", var(--serif);
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background-color: var(--main-bg);
+    border-top: 15px solid var(--main);
+    border-bottom: 9px solid var(--main);
+    border-right: 3px solid var(--gray);
+    padding: 0 30px;
+}
+
+html {
+    background-color: var(--gray);
+    background-image: var(--bg);
+    background-size: 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-attachment: local;
+}
+
+hr {
+    border: none;
+    border-bottom: 2px solid #a2a9b1;
+    height: 0;
+}
+
+/* Links */
+
+a {
+    color: var(--main);
+    font-family: var(--sans);
+    font-weight: bold;
+    text-decoration: underline dotted;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+a:active {
+    color: black;
+}
+
+a:hover,
+a:focus {
+    color: var(--main-light);
+    text-decoration: underline solid;
+    text-decoration-thickness: 3px;
+}
+
+/* Menu */
+
+.pageheader nav ul {
+    padding: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.pageheader nav ul li {
+    list-style: none;
+}
+
+.pageheader nav ul li:not(:last-child)::after {
+    content: "\2022";
+    color: rgb(162, 162, 162);
+    padding: 0 17px;
+}
+
+.pageheader nav ul li a {
+    text-decoration: none;
+}
+
+/* Posts */
+
+article.summary {
+    margin-bottom: 40px;
+}
+
+article.summary p {
+    font-style: oblique;
+}
+
+article.summary * {
+    display: inline;
+}
+
+article.summary h3::after {
+    content: ",";
+}
+
+article.summary p {
+    text-transform: lowercase;
+}
+
+.archive-date,
+.loading-text {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+/* Layout */
+
+body,
+html {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    column-gap: 40px;
+    max-width: fit-content;
+}
+
+@media screen and (min-width: 940px) {
+    body {
+        grid-template-areas:
+            "header header header"
+            "main main sidebar"
+            "footer footer footer";
+        grid-template-columns: 280px 280px 300px;
+        grid-template-rows: auto 1fr 145px;
+        margin-left: 17px !important;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    body {
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+    }
+}
+
+.pageheader {
+    grid-area: header;
+}
+
+.pagecontent {
+    grid-area: main;
+}
+
+aside.sidebar {
+    grid-area: sidebar;
+}
+
+.pagefooter {
+    grid-area: footer;
+}
+
+/* Borderbox hack */
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Header */
+
+.pageheader .title {
+    font-family: var(--display);
+}
+
+.pageheader .subtitle {
+    font-size: 18px;
+    font-family: var(--serif);
+}
+
+/* h-card */
+
+.profile-picture {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    width: 250px;
+    border: 10px solid var(--main);
+    border-radius: 50%;
+    margin-top: 27px;
+}
+
+.h-card {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.h-card h2 {
+    margin-bottom: 0;
+}
+
+.h-card a {
+    text-decoration: none;
+}
+
+/* Footer */
+
+.pagefooter {
+    margin-top: 70px;
+    font-size: 18px;
+    color: var(--gray);
+}
+
+.section {
+    margin: 0 !important;
+}
+            ]]>
+        </b:skin>
+
+        <!-- IndieAuth -->
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+    </head>
+    <body>
+        <header class="pageheader">
+            <h1 class="title">
+                Sterrenkruid
+                <span class="subtitle">/ˈstɛrənkrœyt/</span>
+            </h1>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Recente posts</a>
+                    </li>
+                    <li>
+                        <a href="/p/de-boomkalender.html">Boomkalender</a>
+                    </li>
+                    <li>
+                        <a href="/p/kruiden.html">Kruiden</a>
+                    </li>
+                    <li>
+                        <a href="/p/blogarchief.html">Blogarchief</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <b:if cond='data:view.isHomepage'>
+                <section class="h-card">
+                    <div>
+                        <h2>
+                            <span class="p-name">Joke Visker</span>
+                            (
+                            <span class="dt-bday">1950</span>
+                            )
+                        </h2>
+                        <p>
+                            <a class="u-url" rel="me" href="https://jokessterrenkruid.blogspot.com">https://jokessterrenkruid.blogspot.com</a>
+                            <a hidden="hidden" class="u-email" href="mailto:sterrenkruid@gmail.com" rel="me">sterrenktuid@gmail.com</a>
+                        </p>
+                        <p class="p-note">De naam Sterrenkruid is lang geleden door mij bedacht. Ik wilde mijn belangstelling voor astrologie, kruiden en bijzondere plekken daarmee samenvatten. Op zoek naar verbinding kom ik ofwel terecht in de natuur, ofwel op plekken waar al vanouds de aarde resonantie werd gevoeld. Vooral de typologie en signatuur van kruiden en bomen spreken me aan. Kerken en oude cultusplaatsen staan standaard op mijn wensenlijstje. Omdat ik houd van plekken-met-een-verhaal reis ik met mijn man regelmatig door het land.</p>
+                    </div>
+
+                    <div>
+                        <img class="profile-picture u-photo" src="https://1.bp.blogspot.com/-xr1kW0JYj24/Yj84q1JY-rI/AAAAAAAAHq4/IM_r-X8LCagN2LivyFTgd0tMDe8haTOJACK4BGAYYCw/s113/profielfoto.jpg" alt="Joke Visker-Lievaart" />
+                    </div>
+                </section>
+            </b:if>
+        </header>
+
+        <main class="pagecontent h-feed">
+            <b:section id="main" showaddelement="false">
+                <b:widget id="Blog1" locked="true" title="Blogpost" type="Blog" version="1">
+                    <b:includable id='main' var='top'>
+                        <b:include data="top" name="status-message" />
+
+                        <b:if cond='data:view.isHomepage'>
+                            <h2>Recente posts</h2>
+                        </b:if>
+
+                        <b:loop values='data:posts' var='post'>
+
+                            <b:if cond='data:view.isHomepage or data:view.search'>
+                                <article class="summary h-entry">
+                                    <h3 class="p-title">
+                                        <a class="u-url" expr:href="data:post.url">
+                                            <data:post.title />
+                                        </a>
+                                    </h3>
+                                    <p class="p-summary e-content">
+                                        <b:eval expr='data:post.longSnippet snippet { length: 400, links: false, linebreaks: false }' />
+                                    </p>
+                                </article>
+
+                                <b:else />
+
+                                <article class="h-entry">
+                                    <h1 class="p-title">
+                                        <data:post.title />
+                                    </h1>
+                                    <p>
+                                        <data:authorLabel />
+                                        <span class="p-author">
+                                            Joke Visker
+                                        </span>
+                                        <data:timestampLabel />
+                                        <span class="dt-published">
+                                            <data:post.timestamp />
+                                        </span>
+                                    </p>
+                                    <div class="e-content">
+                                        <data:post.body />
+                                    </div>
+                                </article>
+
+                                <hr />
+                                <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
+                            </b:if>
+                        </b:loop>
+
+                        <!-- feed links -->
+                        <b:include name='feedLinks' />
+                    </b:includable>
+                </b:widget>
+            </b:section>
+        </main>
+        <aside class="sidebar">
+            <b:section id="sidebar" showaddelement="true"></b:section>
+        </aside>
+        <footer class="pagefooter">
+            <p>
+                Gemaakt door Joke Visker. Website-ontwerp en realisatie
+                <br />
+                door
+                <a href="http://www.geheimesite.nl/over-mij.php">Robin Boers</a>
+                . Mogelijk gemaakt door Blogger.
+            </p>
+        </footer>
+    </body>
+</html>

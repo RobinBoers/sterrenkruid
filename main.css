@@ -32,6 +32,12 @@ html {
     background-attachment: local;
 }
 
+hr {
+    border: none;
+    border-bottom: 2px solid #a2a9b1;
+    height: 0;
+}
+
 /* Links */
 
 a {
