@@ -116,7 +116,7 @@ sub {
     --main-light: #fa3f77;
     --gray: #292929;
     --main-bg: #fcfcfc;
-    --bg: url("./images/IMG_4539\ \(copy\).JPG");
+    --bg: url("https://raw.githubusercontent.com/RobinBoers/sterrenkruid/master/images/IMG_4539%20(copy).JPG");
 
     --serif: "PT Serif", serif;
     --display: "Lobster", var(--serif);
