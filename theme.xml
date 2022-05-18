@@ -116,7 +116,7 @@ sub {
     --main-light: #fa3f77;
     --gray: #292929;
     --main-bg: #fcfcfc;
-    --bg: url("https://raw.githubusercontent.com/RobinBoers/sterrenkruid/master/images/IMG_4539%20(copy).JPG");
+    --bg: url("https://raw.githubusercontent.com/RobinBoers/sterrenkruid/master/images/lente.JPG");
 
     --serif: "PT Serif", serif;
     --display: "Lobster", var(--serif);
@@ -129,6 +129,7 @@ body {
     border-top: 15px solid var(--main);
     border-bottom: 9px solid var(--main);
     border-right: 3px solid var(--gray);
+    border-left: 1px solid  var(--gray);
     padding: 0 30px;
 }
 
