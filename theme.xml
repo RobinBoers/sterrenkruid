@@ -409,7 +409,9 @@ html {
                             (<span class="dt-bday">1950</span>)
                         </h2>
                         <p>
-                            <a class="u-url" rel="me" href="https://jokessterrenkruid.blogspot.com">https://jokessterrenkruid.blogspot.com</a>
+                            <a class="u-url" rel="me" expr:href="data:blog.homepageUrl">
+                                <data:blog.homepageUrl/>
+                            </a>
                             <a hidden="hidden" class="u-email" href="mailto:sterrenkruid@gmail.com" rel="me">sterrenktuid@gmail.com</a>
                         </p>
                         <p class="p-note">De naam Sterrenkruid is lang geleden door mij bedacht. Ik wilde mijn belangstelling voor astrologie, kruiden en bijzondere plekken daarmee samenvatten. Op zoek naar verbinding kom ik ofwel terecht in de natuur, ofwel op plekken waar al vanouds de aarde resonantie werd gevoeld. Vooral de typologie en signatuur van kruiden en bomen spreken me aan. Kerken en oude cultusplaatsen staan standaard op mijn wensenlijstje. Omdat ik houd van plekken-met-een-verhaal reis ik met mijn man regelmatig door het land.</p>
@@ -436,7 +438,11 @@ html {
 
                             <b:if cond='data:view.isHomepage or data:view.search'>
                                 <article class="summary h-entry">
-                                    <h3 class="p-title"><a class="u-url" expr:href="data:post.url"><data:post.title /></a></h3>
+                                    <h3 class="p-name">
+                                        <a class="u-url" expr:href="data:post.url">
+                                            <data:post.title />
+                                        </a>
+                                    </h3>
                                     <p class="p-summary e-content">
                                         <b:eval expr='data:post.longSnippet snippet { length: 400, links: false, linebreaks: false }' />
                                     </p>
@@ -445,22 +451,42 @@ html {
                                 <b:else />
 
                                 <article class="h-entry">
-                                    <h1 class="p-title">
+                                    <h1 class="p-name">
                                         <data:post.title />
                                     </h1>
                                     <p hidden="hidden">
                                         <data:authorLabel />
-                                        <span class="p-author">
+                                        <a expr:href="data:blog.homepageUrl" class="p-author h-card">
                                             Joke Visker
-                                        </span>
+                                        </a>
                                         <data:timestampLabel />
-                                        <span class="dt-published">
+                                        <a expr:href="data:post.url" class="u-url dt-published">
                                             <data:post.timestamp />
-                                        </span>
+                                        </a>
                                     </p>
                                     <div class="e-content">
                                         <data:post.body />
                                     </div>
+                                    <p hidden="hidden">
+                                        <i>
+                                            Geplaatst in
+                                            <b:if cond="data:post.labels">
+                                                <b:loop values="data:post.labels" var="label">
+                                                    <b:if cond='data:label.isLast == "false"'>
+                                                        <a class="p-category" expr:href="data:label.url" expr:title="data:label.name" rel="category tag">
+                                                            <data:label.name/>
+                                                        </a>, 
+
+                                                        <b:else />
+
+                                                        <a class="p-category" expr:href="data:label.url" expr:title="data:label.name" rel="category tag">
+                                                            <data:label.name/>
+                                                        </a>
+                                                    </b:if>
+                                                </b:loop>
+                                            </b:if>
+                                        </i>
+                                    </p>
                                 </article>
 
                                 <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
