@@ -489,10 +489,13 @@ html {
                                     </p>
                                 </article>
 
+                                <b:include name='feedLinks'/>
+
                                 <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
                             </b:if>
                         </b:loop>
                     </b:includable>
+
                     <b:includable id='comments' var='post'>
                         <div class='comments' id='comments'>
                             <a name='comments' />
@@ -564,7 +567,6 @@ html {
                             </b:if>
                         </div>
                     </b:includable>
-                    
                     <b:includable id='threaded_comments' var='post'>
                         <div class='comments' id='comments'>
                             <a name='comments' />
@@ -591,6 +593,63 @@ html {
                                     <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'></iframe>
                                 </div>
                             </b:if>
+                        </div>
+                    </b:includable>
+
+                    <b:includable id='feedLinks'>
+                        <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                            <b:if cond='data:feedLinks'>
+                                <div class='blog-feeds'>
+                                    <b:include data='feedLinks' name='feedLinksBody'/>
+                                </div>
+                            </b:if>
+                        <b:else/>
+                            <div class='post-feeds'>
+                                <b:loop values='data:posts' var='post'>
+                                    <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+                                </b:loop>
+                            </div>
+                        </b:if>
+                    </b:includable>
+                    <b:includable id='feedLinksBody' var='links'>
+                        <div class='feed-links'>
+                            <p>
+                                Wil je een berichtje ontvangen als ik een nieuw blog publiceer?<br/>
+                                Stuur dan een mailtje naar <a href='mailto:sterrenkruid@gmail.com'>sterrenkruid@gmail.com</a>, dan zet ik je op de lijst.
+                            </p>
+                            <p>
+                                <span style='padding-right:5px;'>Of volg me via RSS: </span>
+                            
+                                <b:loop values='data:links' var='f'>
+                                    <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'>
+                                        <svg id='Capa_1' style='enable-background:new 0 0 455.731 455.731;max-width:12px;' version='1.1' viewBox='0 0 455.731 455.731' x='0px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' y='0px'>
+                                            <g>
+                                                <rect height='455.731' style='fill:#F78422;' width='455.731' x='0' y='0'/>
+                                                <g>
+                                                    <path d='M296.208,159.16C234.445,97.397,152.266,63.382,64.81,63.382v64.348    c70.268,0,136.288,27.321,185.898,76.931c49.609,49.61,76.931,115.63,76.931,185.898h64.348    C391.986,303.103,357.971,220.923,296.208,159.16z' style='fill:#FFFFFF;'/>
+                                                    <path d='M64.143,172.273v64.348c84.881,0,153.938,69.056,153.938,153.939h64.348    C282.429,270.196,184.507,172.273,64.143,172.273z' style='fill:#FFFFFF;'/>
+                                                    <circle cx='109.833' cy='346.26' r='46.088' style='fill:#FFFFFF;'/>
+                                                </g>
+                                            </g>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                            <g/>
+                                        </svg> <data:f.name/>
+                                    </a>
+                                </b:loop>
+                            </p>
                         </div>
                     </b:includable>
                 </b:widget>
