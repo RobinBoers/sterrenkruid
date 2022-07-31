@@ -489,11 +489,10 @@ html {
                                     </p>
                                 </article>
 
-                                <b:include name='feedLinks'/>
-
                                 <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
                             </b:if>
                         </b:loop>
+                                                                                <b:include name='feedLinks'/>
                     </b:includable>
 
                     <b:includable id='comments' var='post'>
