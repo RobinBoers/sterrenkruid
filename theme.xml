@@ -365,6 +365,39 @@ html {
     display: none;
 }
 
+/* Feed links */
+.post-feeds {
+    margin-top: 135px;
+}
+
+/* Subscribe button */
+.title-area {
+    position: relative;
+}
+
+.button {
+    background: var(--main);
+    color: white;
+    padding: 6px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 200ms;
+}
+
+.button:hover {
+    background: var(--main-light);
+    color: white;
+    text-decoration: none;
+}
+
+.abonneren {
+    position: absolute;
+    right: 0;
+    height: 10px;
+    top: 15px;
+    padding: 18px;
+}
+
 /* Misc */
 
 .hidden {
@@ -379,10 +412,15 @@ html {
     </head>
     <body>
         <header class="pageheader">
-            <h1 class="title">
-                Sterrenkruid
-                <span class="subtitle">/ˈstɛrənkrœyt/</span>
-            </h1>
+            <div class="title-area">
+                <h1 class="title">
+                    Sterrenkruid
+                    <span class="subtitle">/ˈstɛrənkrœyt/</span>
+                </h1>
+
+                <a class="button abonneren" href="/p/abonneren.html">Abonneren</a>
+            </div>
+            
 
             <nav>
                 <ul>
@@ -490,9 +528,10 @@ html {
                                 </article>
 
                                 <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker' />
+
+                                <b:include name='feedLinks'/>
                             </b:if>
                         </b:loop>
-                                                                                <b:include name='feedLinks'/>
                     </b:includable>
 
                     <b:includable id='comments' var='post'>
