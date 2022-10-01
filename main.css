@@ -28,14 +28,17 @@ body {
 html {
     background-color: var(--gray);
     background-image: var(--bg);
-    background-repeat: no-repeat;
     background-attachment: local;
+    
     /* Landscape images (disabled for now) */
     /* background-size: 100%;
-    background-position: top left; */
+    background-position: top left; 
+    background-repeat: no-repeat; */
+    
     /* Portrait images */
     background-size: 58%;
     background-position: top right;
+    background-repeat: repeat-x;
 }
 
 hr {
