@@ -136,10 +136,14 @@ body {
 html {
     background-color: var(--gray);
     background-image: var(--bg);
-    background-size: 100%;
-    background-position: top left;
     background-repeat: no-repeat;
     background-attachment: local;
+    /* Landscape images (disabled for now) */
+    /* background-size: 100%;
+    background-position: top left; */
+    /* Portrait images */
+    background-size: 58%;
+    background-position: top right;
 }
 
 hr {
