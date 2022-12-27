@@ -140,14 +140,14 @@ html {
     background-attachment: local;
     
     /* Landscape images (disabled for now) */
-    /* background-size: 100%;
+    background-size: 100%;
     background-position: top left; 
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     
     /* Portrait images */
-    background-size: 58%;
+    /* background-size: 58%;
     background-position: top right;
-    background-repeat: repeat-x;
+    background-repeat: repeat-x; */
 }
 
 hr {
@@ -453,8 +453,7 @@ html {
                     <div>
                         <h2>
                             <span class="p-name">Joke Visker</span> (<span class="dt-bday">1950</span>
-                            )
-                        </h2>
+                            ) </h2>
                         <p>
                             <a class="u-url" rel="me" expr:href="data:blog.homepageUrl">
                                 <data:blog.homepageUrl />
@@ -535,9 +534,7 @@ html {
                                                             rel="category tag">
                                                             <data:label.name />
                                                         </a>
-                                            , 
-
-                                                        <b:else />
+                                            , <b:else />
 
                                                         <a
                                                             class="p-category"
