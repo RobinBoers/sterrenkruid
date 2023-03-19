@@ -466,14 +466,28 @@ html {
                             <a hidden="hidden" class="u-email" href="mailto:sterrenkruid@gmail.com"
                                 rel="me">sterrenktuid@gmail.com</a>
                         </p>
-                        <p class="p-note">De naam Sterrenkruid is lang geleden door mij bedacht. Ik
-                            wilde mijn belangstelling voor astrologie, kruiden en bijzondere plekken
-                            daarmee samenvatten. Op zoek naar verbinding kom ik ofwel terecht in de
-                            natuur, ofwel op plekken waar al vanouds de aarde resonantie werd
-                            gevoeld. Vooral de typologie en signatuur van kruiden en bomen spreken
-                            me aan. Kerken en oude cultusplaatsen staan standaard op mijn
-                            wensenlijstje. Omdat ik houd van plekken-met-een-verhaal reis ik met
-                            mijn man regelmatig door het land.</p>
+
+                        <div class="p-note">
+                            <p>
+                                De naam Sterrenkruid is lang geleden door mij bedacht. Ik wilde mijn
+                                belangstelling voor astrologie, kruiden en bijzondere plekken
+                                daarmee samenvatten. Op zoek naar verbinding kom ik ofwel terecht in
+                                de natuur, ofwel op plekken waar al vanouds de aarde resonantie werd
+                                gevoeld.
+                            </p>
+
+                            <p>
+                                Kerken en oude cultusplaatsen staan standaard op mijn wensenlijstje.
+                                Omdat ik houd van plekken-met-een-verhaal reis ik met mijn man
+                                regelmatig door het land. Op dit blog schrijf ik over kerken,
+                                krachtplaatsen en bomen.
+                            </p>
+
+                            <p>De verhalen over kruiden, kinderen en tradities vind je op mijn blog <a
+                                    href="https://grootmoedersdagboek.blogspot.com/">'Dagboek van
+                                    een Grootmoeder'</a>.</p>
+                        </div>
+
                     </div>
 
                     <div>
