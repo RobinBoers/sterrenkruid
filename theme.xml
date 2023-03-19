@@ -123,7 +123,7 @@ sub {
     --main-light: #fa3f77;
     --gray: #292929;
     --main-bg: #fcfcfc;
-    --bg: url("https://raw.githubusercontent.com/RobinBoers/sterrenkruid/master/images/winter.JPG");
+    --bg: url("https://raw.githubusercontent.com/RobinBoers/sterrenkruid/master/images/lente.jpg");
 
     --serif: "PT Serif", serif;
     --display: "Lobster", var(--serif);
