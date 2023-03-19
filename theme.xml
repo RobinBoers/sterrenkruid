@@ -13,12 +13,18 @@
         <title>
             <data:blog.pageTitle /> — Joke Visker </title>
 
-        <b:skin>
-            <![CDATA[
-            @import url("https://fonts.googleapis.com/css2?family=Lobster&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        <b:skin><![CDATA[/*
+-----------------------------------------------
+Template Name  : Sterrenkruid
+Author         : Robin Boers
+Author URL     : https://geheimesite.nl
+Theme URL      : http://geheimesite.nl/projects/websites/sterrenkruid
+Created Date   : Monday, May 16, 2016
+----------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-            /* Typography */
-            html,
+/* Typography */
+html,
 .root {
     font-size: 19px;
     line-height: 27px;
@@ -426,7 +432,6 @@ html {
 
                 <a class="button abonneren" href="/p/abonneren.html">Abonneren</a>
             </div>
-
 
             <nav>
                 <ul>
