@@ -4,12 +4,16 @@
 /* Theme */
 
 :root {
-  --main: #cf2658;
-  --main-light: #fa3f77;
+  /* Winter */
+  /* --main: #cf2658;
+  --main-light: #fa3f77; */
+  /* Zomer */
+  --main: #570c9c;
+  --main-light: #6d379e;
   --gray: #292929;
   --main-bg: #fcfcfc;
-  /* --bg: url("./images/IMG_4539\ \(copy\).JPG"); */
-  --bg: url("./images/winter.JPG");
+  --bg: url("./images/zomer.jpg");
+  /* --bg: url("./images/winter.JPG"); */
 
   --serif: "PT Serif", serif;
   --display: "Lobster", var(--serif);
